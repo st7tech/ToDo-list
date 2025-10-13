@@ -5,7 +5,19 @@
   --white: #f7f7f7;
   --black: #252525;
 
+  --task-hover-effect: #817afd;
+
   --toolbar-radius: 5px;
+}
+
+@font-face {
+  font-family: "Kanit";
+  src: local("Kanit-Regular"),
+    url("../fonts/Kanit-Regular.woff2") format("woff2"),
+    url("../fonts/Kanit-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -68,6 +80,31 @@ input {
   outline: none;
 }
 
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 28px;
+  height: 28px;
+
+  border: 1px solid var(--purple);
+  border-radius: 2px;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease-in-out;
+}
+input[type="checkbox"]:checked {
+  background-color: var(--purple);
+  background-image: url(../img/checked.svg);
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: center;
+}
+input[type="checkbox"]:disabled {
+  background-color: var(--black);
+}
+
 /* Default style end */
 
 /* Global style start */
@@ -84,6 +121,8 @@ input {
 }
 
 .container {
+  position: relative;
+
   max-width: 780px;
   padding: 0 15px;
   margin: 0 auto;
@@ -98,6 +137,15 @@ input {
 
 .btn {
   background-color: var(--purple);
+}
+
+.list--reset {
+  padding: 0;
+  list-style: none;
+}
+
+.none {
+  display: none;
 }
 
 /* Section header start */
@@ -162,8 +210,8 @@ input {
   outline: none;
   border: none;
   border-radius: var(--toolbar-radius);
-	max-width: 85px;
-	max-height: 38px;
+  max-width: 85px;
+  max-height: 38px;
 
   padding: 10px;
 
@@ -182,8 +230,8 @@ input {
 .toolbar__theme-btn {
   border-radius: var(--toolbar-radius);
 
-	width: 38px;
-	height: 38px;
+  width: 38px;
+  height: 38px;
   padding: 8px;
 }
 /* Sectoin toolbar end */
@@ -191,39 +239,114 @@ input {
 /* Section tasks start */
 
 .task__container {
-	max-width: 550px;
-	padding: 0 15px;
-	margin: 0 auto;
+  max-width: 550px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.empty__item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 20px;
+}
+
+.empty__icon {
+  width: 221px;
+  height: 174px;
+}
+
+.empty__title {
+  font-size: 20px;
+  line-height: 100%;
+  font-weight: 400;
 }
 
 .task__item {
-	display: flex;
+  display: flex;
+  align-items: center;
 
-	align-items: center;
+  padding: 10px;
+  border-radius: var(--toolbar-radius);
+
+  transition: background-color 0.3s ease-in-out;
+}
+.task__item:hover {
+  background-color: var(--task-hover-effect);
+}
+.task__item:hover .task__title {
+  transition: color 0.3s ease-in-out;
+  color: var(--white);
+}
+.task__item:hover .task__checkbox[type="checkbox"] {
+  transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  border: 1px solid var(--white);
+}
+.task__item:hover .pencil__icon path {
+  transition: stroke 0.3s ease-in-out;
+  stroke: var(--white);
+}
+.task__item:hover .trash__icon path {
+  transition: stroke 0.3s ease-in-out;
+  stroke: var(--white);
 }
 
 .task__left-content {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 
-	gap: 17px;
-	margin-right: auto;
+  gap: 17px;
+  margin-right: auto;
 }
 
-.tasks__title {
-	text-transform: uppercase;
+.task__title {
+  text-transform: uppercase;
+
+  font-size: 20px;
+  line-height: 100%;
+  font-weight: 400;
 }
 
 .task__right-content {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 
-	gap: 10px;
+  gap: 10px;
 }
 
 .task__btn {
-	width: 18px;
-	height: 18px;
+  width: 18px;
+  height: 18px;
 }
 
+.pencil__icon path {
+  stroke: var(--black);
+}
+.pencil:hover .pencil__icon path {
+  stroke: #000000;
+}
+
+.trash__icon path {
+  stroke: var(--black);
+}
+.trash:hover .trash__icon path {
+  stroke: #ff6e6e;
+}
+
+.task-add__btn {
+  position: absolute;
+  top: 350px;
+  right: 10px;
+
+  padding: 11px;
+  border: 2px solid var(--purple);
+  border-radius: 50%;
+
+  background-color: var(--purple);
+  -webkit-box-shadow: 0px 0px 28px 6px rgba(108, 99, 255, 0.65);
+  -moz-box-shadow: 0px 0px 28px 6px rgba(108, 99, 255, 0.65);
+  box-shadow: 0px 0px 28px 6px rgba(108, 99, 255, 0.65);
+}
 /* Section tasks end */

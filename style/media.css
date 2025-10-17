@@ -1,0 +1,23 @@
+@media (max-width: 992px) {
+  .toolbar__container {
+    flex-direction: column;
+  }
+  
+  .toolbar__search-container {
+    flex: none;
+  }
+
+  .toolbar__search {
+    max-width: 100%;
+  }
+
+  .toolbar__right-content select{
+    width: 50%;
+    max-width: 100%;
+  }
+
+  .toolbar__right-content button{
+    width: 50%;
+    miaxwidth: 100%;
+  }
+}

@@ -18,6 +18,6 @@
 
   .toolbar__right-content button{
     width: 50%;
-    miaxwidth: 100%;
+    max-width: 100%;
   }
 }

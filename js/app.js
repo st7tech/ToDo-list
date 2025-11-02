@@ -1,11 +1,10 @@
-import {addHeader} from "./components/header.js";
+import { addHeader } from "./components/header.js";
 
-document.body.onload = addElement;
-const app = document.getElementById("app");
+document.addEventListener("DOMContentLoaded", () => {
+  const app = document.getElementById("app");
+  
+	addHeader();
+});
 
-let style = document.createElement("style");
-document.getElementsByTagName("head")[0].insertAdjacentElement("beforeend", style);
-
-function addElement() {
-  addHeader(style)
-}
+// function addElement() {
+// }

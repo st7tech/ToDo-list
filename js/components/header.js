@@ -3,37 +3,18 @@ export function addHeader(styleAdd) {
   const headerContainer = document.createElement("div");
   const mainTitle = document.createElement("h1");
 
-  header.classList.add("header");
-  headerContainer.classList.add("container", "header__container");
-  mainTitle.classList.add("main-header");
+  header.style.marginBottom = "23px";
+
+  headerContainer.style.paddingTop = "48px";
+  headerContainer.style.textAlign = "center";
+
+  mainTitle.style.fontWeight = "500";
+  mainTitle.style.fontSize = "26px";
+  mainTitle.style.lineHeight = "100%";
+
+  headerContainer.classList.add("container");
 
   mainTitle.innerText = "TODO LIST";
-
-  // Style
-  styleAdd.innerHTML += `
-		.header {
-			margin-bottom: 23px;
-		}	
-
-		.container {
-			position: relative;
-			max-width: 780px;
-			padding: 0 15px;
-			margin: 0 auto;
-		}
-
-		.header__container {
-			padding-top: 48px;
-
-			text-align: center;
-		}	
-
-		.main-header {
-			font-weight: 500;
-			font-size: 26px;
-			line-height: 100%;
-		}
-	`;
 
   // Add DOM tree
   app.insertAdjacentElement("afterbegin", header);

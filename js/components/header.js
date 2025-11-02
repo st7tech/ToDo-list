@@ -1,4 +1,4 @@
-export function addHeader() {
+export function addHeader(styleAdd) {
   const header = document.createElement("header");
   const headerContainer = document.createElement("div");
   const mainTitle = document.createElement("h1");
@@ -10,7 +10,7 @@ export function addHeader() {
   mainTitle.innerText = "TODO LIST";
 
   // Style
-  style.innerHTML += `
+  styleAdd.innerHTML += `
 		.header {
 			margin-bottom: 23px;
 		}	

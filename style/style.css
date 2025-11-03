@@ -153,26 +153,6 @@ svg {
   display: none !important;
 }
 
-/* Section header start */
-
-.header {
-  margin-bottom: 23px;
-}
-
-.header__container {
-  padding-top: 48px;
-
-  text-align: center;
-}
-
-.main-header {
-  font-weight: 500;
-  font-size: 26px;
-  line-height: 100%;
-}
-
-/* Section header end */
-
 /* Section toolbar start */
 
 .toolbar {

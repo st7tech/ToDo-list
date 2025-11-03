@@ -1,4 +1,4 @@
-export function addHeader(styleAdd) {
+export function addHeader() {
   const header = document.createElement("header");
   const headerContainer = document.createElement("div");
   const mainTitle = document.createElement("h1");

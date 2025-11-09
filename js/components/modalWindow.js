@@ -9,7 +9,6 @@ export function addTask(parentTag) {
     const taskModalWindowButtonClose = document.createElement("button")
     const taskModalWindowButtonAdd = document.createElement("button")
 
-    
     // Style
     taskModalWindow.classList.add("task__modal-window", "active")
     taskModalWindow.style.width = "100%"
@@ -83,7 +82,15 @@ export function addTask(parentTag) {
 
     // Inner in HTML
 
-    
+    parentTag.insertAdjacentElement("beforeend", taskWindowContainer)
+    taskWindowContainer.insertAdjacentElement("afterbegin", taskModalWindow)
+    taskModalWindow.insertAdjacentElement("afterbegin", taskModalWindowContainer)
+    taskModalWindowContainer.insertAdjacentElement("afterbegin", taskModalWindowBody)
+    taskModalWindowBody.insertAdjacentElement("afterbegin", taskModalWindowTitle)
+    taskModalWindowBody.insertAdjacentElement("beforeend", taskModalWindowInput)
+    taskModalWindowBody.insertAdjacentElement("beforeend", taskModalWindowButtons)
+    taskModalWindowButtons.insertAdjacentElement("afterbegin", taskModalWindowButtonClose)
+    taskModalWindowButtons.insertAdjacentElement("beforeend", taskModalWindowButtonAdd)
 }
 
 // const openPopUp = document.querySelector(".task-add__btn");

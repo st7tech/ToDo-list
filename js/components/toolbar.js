@@ -24,14 +24,6 @@ export function addToolbar(parentTag) {
     "path"
   );
 
-  // Function
-
-  const toolbarSelectItemSetting = [
-    { value: "all", selected: true, text: "All" },
-    { value: "complete", selected: false, text: "Complete" },
-    { value: "incomplete", selected: false, text: "Incomplete" },
-  ];
-
   // Element setting
 
   toolbarSearchInput.type = "text";
@@ -42,8 +34,8 @@ export function addToolbar(parentTag) {
   toolbarButtonSearchIcon.setAttribute("width", "21");
   toolbarButtonSearchIcon.setAttribute("height", "22");
   toolbarButtonSearchIcon.setAttribute("viewBox", "0 0 21 22");
-  toolbarButtonSearchIcon.setAttribute("fill", "green");
-  toolbarButtonSearchIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg")
+  toolbarButtonSearchIcon.setAttribute("fill", "none");
+  toolbarButtonSearchIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg");
 
   toolbarButtonSearchIconPath.setAttribute(
     "d",
@@ -79,6 +71,7 @@ export function addToolbar(parentTag) {
   toolbarSearchContainer.style.flex = "0 1 595px";
   toolbarSearchContainer.style.minWidth = "0";
 
+  toolbarSearchInput.classList.add("toolbar__search")
   toolbarSearchInput.style.display = "block";
   toolbarSearchInput.style.width = "100%";
   toolbarSearchInput.style.maxWidth = "595px";
@@ -93,7 +86,7 @@ export function addToolbar(parentTag) {
     "background-color 0.3s ease-in-out, outline-offset .3s ease-in-out";
   toolbarSearchInput.classList.add(".toolbar__search");
 
-  toolbarButtonSearch.classList.add("btn--reset", "btn");
+  toolbarButtonSearch.classList.add("btn--reset");
   toolbarButtonSearch.style.position = "absolute";
   toolbarButtonSearch.style.right = "15px";
   toolbarButtonSearch.style.bottom = "5px";
@@ -105,13 +98,13 @@ export function addToolbar(parentTag) {
   toolbarSelectList.style.border = "none";
   toolbarSelectList.style.borderRadius = "var(--toolbar-radius";
   toolbarSelectList.style.maxWidth = "85px";
-  toolbarSelectList.style.maxHeight = "85px";
+  toolbarSelectList.style.maxHeight = "38px";
   toolbarSelectList.style.padding = "10px";
   toolbarSelectList.style.textTransform = "uppercase";
   toolbarSelectList.style.color = "var(--white)";
   toolbarSelectList.style.backgroundColor = "var(--purple)";
 
-  toolbarButtonTheme.classList.add("btn--reset", "btn");
+  toolbarButtonTheme.classList.add("btn--reset", "btn", "toolbar__theme-btn");
   toolbarButtonTheme.style.borderRadius = "var(--toolbar-radius)";
   toolbarButtonTheme.style.width = "38px";
   toolbarButtonTheme.style.height = "38px";
@@ -120,6 +113,7 @@ export function addToolbar(parentTag) {
     "background-color 0.2s ease-in-out, outline 0.2s ease-in-out, outline-offset 0.2s ease-in-out";
 
   // Inner in HTML
+
 
   parentTag.insertAdjacentElement("afterbegin", section);
   section.insertAdjacentElement("afterbegin", toolbarContainer);
@@ -144,6 +138,12 @@ export function addToolbar(parentTag) {
 
   toolbarContainer.insertAdjacentElement("beforeend", toolbarRightContent);
   toolbarRightContent.insertAdjacentElement("afterbegin", toolbarSelectList);
+
+      const toolbarSelectItemSetting = [
+    { value: "all", selected: true, text: "All" },
+    { value: "complete", selected: false, text: "Complete" },
+    { value: "incomplete", selected: false, text: "Incomplete" },
+  ];
 
   for (let i = 0; i < toolbarSelectItemSetting.length; i++) {
     var toolbarSelectItem = document.createElement("option");

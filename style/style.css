@@ -179,32 +179,6 @@ svg {
 
 /* Section tasks start */
 
-.task__container {
-  max-width: 550px;
-  padding: 0 15px;
-  margin: 0 auto;
-}
-
-.empty__item {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-
-  gap: 20px;
-}
-
-.empty__icon {
-  width: 221px;
-  height: 174px;
-}
-
-.empty__title {
-  font-size: 20px;
-  line-height: 100%;
-  font-weight: 400;
-}
-
 .task__item {
   display: flex;
   align-items: center;
@@ -276,115 +250,16 @@ svg {
   stroke: #ff6e6e;
 }
 
-.task-add__btn {
-  position: absolute;
-  top: 350px;
-  right: 40px;
-
-  padding: 11px;
-  border: 2px solid var(--purple);
-  border-radius: 10%;
-
-  background-color: var(--purple);
-  -webkit-box-shadow: 0px 0px 28px 6px rgba(108, 99, 255, 0.65);
-  -moz-box-shadow: 0px 0px 28px 6px rgba(108, 99, 255, 0.65);
-  box-shadow: 0px 0px 28px 6px rgba(108, 99, 255, 0.65);
-}
-
 .task__modal-window.active {
-  transform: translateY(0%) scale(100%);
+  transform: translateY(0%) scale(1);
   background-color: var(--modal-window-bgc);
 }
 
-.task__modal-window {
-  width: 100%;
-  height: 100%;
-
-  background-color: transparent;
-
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 2;
-  transform: translateY(-44.5%) scale(0);
-
-  transition: all 0.3s ease-in-out;
-}
-
-.task__modal-window--container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-
-  padding: 15px;
-}
-
-.task__modal-window--body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  max-width: 530px;
-  width: 100%;
-  height: 290px;
-
-  padding: 18px 30px;
-  margin: auto;
-  border-radius: 16px;
-
-  background-color: var(--white);
-}
-
-.task__modal-window-title {
-  font-size: 24px;
-  line-height: 100%;
-  font-weight: 400;
-
-  margin-bottom: 25px;
-}
-
-.task__modal-window-input {
-  width: 100%;
-  border: 1px solid var(--purple);
-  border-radius: var(--toolbar-radius);
-
-  margin-bottom: auto;
-  padding: 11px 16px;
-
-  line-height: 100%;
-  font-size: 16px;
-
-  transition: outline 0.3s ease-in-out, outline-offset 0.2s ease-in-out;
-}
 .task__modal-window-input::placeholder {
   color: var(--placeholder-text);
 }
 .task__modal-window-input:focus {
   outline: 2px solid var(--purple);
   outline-offset: 2px;
-}
-
-.task__modal-window-btns {
-  display: flex;
-  justify-content: space-between;
-
-  width: 100%;
-}
-
-.task__modal-window-btn {
-  padding: 10px 22px;
-  border: 1px solid var(--purple);
-  border-radius: var(--toolbar-radius);
-
-  font-size: 18px;
-  line-height: 100%;
-  color: var(--purple);
-  text-transform: uppercase;
-
-  background-color: transparent;
-}
-.task__modal-window-btn--bg-puple {
-  background-color: var(--purple);
-  color: var(--white);
 }
 /* Section tasks end */

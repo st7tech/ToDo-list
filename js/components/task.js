@@ -64,5 +64,5 @@ export function addToDoList(parentTag, body) {
   taskMainContainer.insertAdjacentElement("beforeend", taskAddButton);
   taskAddButton.insertAdjacentElement("afterbegin", taskAddButtonIcon);
 
-  addTask(taskSection)
+  addTask(taskSection, taskAddButton)
 }

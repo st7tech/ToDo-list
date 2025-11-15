@@ -1,110 +1,123 @@
-export function addTask(parentTag) {
-    const taskWindowContainer = document.createElement("div")
-    const taskModalWindow = document.createElement("article")
-    const taskModalWindowContainer = document.createElement("div")
-    const taskModalWindowBody = document.createElement("div")
-    const taskModalWindowTitle = document.createElement("h2")
-    const taskModalWindowInput = document.createElement("input")
-    const taskModalWindowButtons = document.createElement("div")
-    const taskModalWindowButtonClose = document.createElement("button")
-    const taskModalWindowButtonAdd = document.createElement("button")
+export function addTask(parentTag, taskAddButton) {
+  const taskModalWindow = document.createElement("article");
+  const taskModalWindowContainer = document.createElement("div");
+  const taskModalWindowBody = document.createElement("div");
+  const taskModalWindowTitle = document.createElement("h2");
+  const taskModalWindowInput = document.createElement("input");
+  const taskModalWindowButtons = document.createElement("div");
+  const taskModalWindowButtonClose = document.createElement("button");
+  const taskModalWindowButtonAdd = document.createElement("button");
 
-    // Style
-    taskModalWindow.classList.add("task__modal-window", "active")
-    taskModalWindow.style.width = "100%"
-    taskModalWindow.style.height = "100%"
-    taskModalWindow.style.backgroundColor = "transparent"
-    taskModalWindow.style.position = "fixed"
-    taskModalWindow.style.left = "0"
-    taskModalWindow.style.top = "0"
-    taskModalWindow.style.zIndex = "2"
-    taskModalWindow.style.transform = "translateY(-44.5%) scale(0)"
-    taskModalWindow.style.transition = "all 0.3s ease-in-out"
+  // Style
 
-    taskModalWindowContainer.style.display = "flex"
-    taskModalWindowContainer.style.width = "100%"
-    taskModalWindowContainer.style.height = "100%"
-    taskModalWindowContainer.style.padding = "15px"
+  taskModalWindow.style.display = "none";
+  taskModalWindow.style.width = "100%";
+  taskModalWindow.style.height = "100%";
+  taskModalWindow.style.backgroundColor = "transparent";
+  taskModalWindow.style.position = "fixed";
+  taskModalWindow.style.left = "0";
+  taskModalWindow.style.top = "0";
+  taskModalWindow.style.zIndex = "2";
+  taskModalWindow.style.transform = "translateY(-44.5%) scale(0)";
+  taskModalWindow.style.backgroundColor = "var(--modal-window-bgc)";
+  taskModalWindow.style.transition = "all 0.3s ease-in-out";
 
-    taskModalWindowBody.style.display = "flex"
-    taskModalWindowBody.style.flexDirection = "column"
-    taskModalWindowBody.style.alignItems = "center"
-    taskModalWindowBody.style.maxWidth = "530px"
-    taskModalWindowBody.style.width = "100%"
-    taskModalWindowBody.style.height = "290px"
-    taskModalWindowBody.style.padding = "18px 30px"
-    taskModalWindowBody.style.margin = "auto"
-    taskModalWindowBody.style.borderRadius = "16px"
-    taskModalWindowBody.style.backgroundColor = "var(--white)"
+  taskModalWindowContainer.style.display = "flex";
+  taskModalWindowContainer.style.width = "100%";
+  taskModalWindowContainer.style.height = "100%";
+  taskModalWindowContainer.style.padding = "15px";
 
-    taskModalWindowTitle.style.fontSize = "24px"
-    taskModalWindowTitle.style.lineHeight = "100%"
-    taskModalWindowTitle.style.fontWeight = "400"
-    taskModalWindowTitle.style.marginRight = "25px"
+  taskModalWindowBody.style.display = "flex";
+  taskModalWindowBody.style.flexDirection = "column";
+  taskModalWindowBody.style.alignItems = "center";
+  taskModalWindowBody.style.maxWidth = "530px";
+  taskModalWindowBody.style.width = "100%";
+  taskModalWindowBody.style.height = "290px";
+  taskModalWindowBody.style.padding = "18px 30px";
+  taskModalWindowBody.style.margin = "auto";
+  taskModalWindowBody.style.borderRadius = "16px";
+  taskModalWindowBody.style.backgroundColor = "var(--white)";
 
-    taskModalWindowInput.classList.add("task__modal-window-input")
-    taskModalWindowInput.style.width = "100%"
-    taskModalWindowInput.style.border = "1px solid var(--purple)"
-    taskModalWindowInput.style.borderRadius = "var(--toolbar-radius)"
-    taskModalWindowInput.style.marginBottom = "auto"
-    taskModalWindowInput.style.padding = "11px 16px"
-    taskModalWindowInput.style.lineHeight = "100%"
-    taskModalWindowInput.style.fontSize = "16px"
-    taskModalWindowInput.style.transition = "outline 0.3s ease-in-out, outline-offset 0.2s ease-in-out"
+  taskModalWindowTitle.style.fontSize = "24px";
+  taskModalWindowTitle.style.lineHeight = "100%";
+  taskModalWindowTitle.style.fontWeight = "400";
+  taskModalWindowTitle.style.marginBottom = "25px";
 
-    taskModalWindowButtons.style.display = "flex"
-    taskModalWindowButtons.style.justifyContent = "space-between"
-    taskModalWindowButtons.style.width = "100%"
+  taskModalWindowInput.classList.add("task__modal-window-input");
+  taskModalWindowInput.placeholder = "Input your note...";
+  taskModalWindowInput.style.width = "100%";
+  taskModalWindowInput.style.border = "1px solid var(--purple)";
+  taskModalWindowInput.style.borderRadius = "var(--toolbar-radius)";
+  taskModalWindowInput.style.marginBottom = "auto";
+  taskModalWindowInput.style.padding = "11px 16px";
+  taskModalWindowInput.style.lineHeight = "100%";
+  taskModalWindowInput.style.fontSize = "16px";
+  taskModalWindowInput.style.transition =
+    "outline 0.3s ease-in-out, outline-offset 0.2s ease-in-out";
 
-    taskModalWindowButtonClose.style.padding = "10px 22px"
-    taskModalWindowButtonClose.style.border = "1px solid var(--purple)"
-    taskModalWindowButtonClose.style.borderRadius = "var(--toolbar-radius)"
-    taskModalWindowButtonClose.style.fontSize = "18px"
-    taskModalWindowButtonClose.style.lineHeight = "100%"
-    taskModalWindowButtonClose.style.color = "var(--purple)"
-    taskModalWindowButtonClose.style.textTransform = "uppercase"
-    taskModalWindowButtonClose.style.backgroundColor = "transparent"
+  taskModalWindowButtons.style.display = "flex";
+  taskModalWindowButtons.style.justifyContent = "space-between";
+  taskModalWindowButtons.style.width = "100%";
 
-    taskModalWindowButtonAdd.style.padding = "10px 22px"
-    taskModalWindowButtonAdd.style.border = "1px solid var(--purple)"
-    taskModalWindowButtonAdd.style.borderRadius = "var(--toolbar-radius)"
-    taskModalWindowButtonAdd.style.fontSize = "18px"
-    taskModalWindowButtonAdd.style.lineHeight = "100%"
-    taskModalWindowButtonAdd.style.color = "var(--white)"
-    taskModalWindowButtonAdd.style.textTransform = "uppercase"
-    taskModalWindowButtonAdd.style.backgroundColor = "var(--purple)"
+  taskModalWindowButtonClose.style.padding = "10px 22px";
+  taskModalWindowButtonClose.style.border = "1px solid var(--purple)";
+  taskModalWindowButtonClose.style.borderRadius = "var(--toolbar-radius)";
+  taskModalWindowButtonClose.style.fontSize = "18px";
+  taskModalWindowButtonClose.style.lineHeight = "100%";
+  taskModalWindowButtonClose.style.color = "var(--purple)";
+  taskModalWindowButtonClose.style.textTransform = "uppercase";
+  taskModalWindowButtonClose.style.backgroundColor = "transparent";
 
-    // Tag content
+  taskModalWindowButtonAdd.style.padding = "10px 22px";
+  taskModalWindowButtonAdd.style.border = "1px solid var(--purple)";
+  taskModalWindowButtonAdd.style.borderRadius = "var(--toolbar-radius)";
+  taskModalWindowButtonAdd.style.fontSize = "18px";
+  taskModalWindowButtonAdd.style.lineHeight = "100%";
+  taskModalWindowButtonAdd.style.color = "var(--white)";
+  taskModalWindowButtonAdd.style.textTransform = "uppercase";
+  taskModalWindowButtonAdd.style.backgroundColor = "var(--purple)";
 
-    taskModalWindowTitle.innerText = "New Note"
-    taskModalWindowButtonClose.innerText = "Cancel"
-    taskModalWindowButtonAdd.innerText = "Apply"
+  // Tag content
 
-    // Inner in HTML
+  taskModalWindowTitle.innerText = "New Note";
+  taskModalWindowButtonClose.innerText = "Cancel";
+  taskModalWindowButtonAdd.innerText = "Apply";
 
-    parentTag.insertAdjacentElement("beforeend", taskWindowContainer)
-    taskWindowContainer.insertAdjacentElement("afterbegin", taskModalWindow)
-    taskModalWindow.insertAdjacentElement("afterbegin", taskModalWindowContainer)
-    taskModalWindowContainer.insertAdjacentElement("afterbegin", taskModalWindowBody)
-    taskModalWindowBody.insertAdjacentElement("afterbegin", taskModalWindowTitle)
-    taskModalWindowBody.insertAdjacentElement("beforeend", taskModalWindowInput)
-    taskModalWindowBody.insertAdjacentElement("beforeend", taskModalWindowButtons)
-    taskModalWindowButtons.insertAdjacentElement("afterbegin", taskModalWindowButtonClose)
-    taskModalWindowButtons.insertAdjacentElement("beforeend", taskModalWindowButtonAdd)
+  // Inner in HTML
+
+  parentTag.insertAdjacentElement("beforeend", taskModalWindow);
+  taskModalWindow.insertAdjacentElement("afterbegin", taskModalWindowContainer);
+  taskModalWindowContainer.insertAdjacentElement(
+    "afterbegin",
+    taskModalWindowBody
+  );
+  taskModalWindowBody.insertAdjacentElement("afterbegin", taskModalWindowTitle);
+  taskModalWindowBody.insertAdjacentElement("beforeend", taskModalWindowInput);
+  taskModalWindowBody.insertAdjacentElement(
+    "beforeend",
+    taskModalWindowButtons
+  );
+  taskModalWindowButtons.insertAdjacentElement(
+    "afterbegin",
+    taskModalWindowButtonClose
+  );
+  taskModalWindowButtons.insertAdjacentElement(
+    "beforeend",
+    taskModalWindowButtonAdd
+  );
+
+  taskAddButton.addEventListener("click", () => {
+    taskModalWindow.style.display = "block";
+    taskModalWindow.style.transform = "translateY(0%) scale(1)";
+    taskModalWindow.style.backgroundColor = "var(--modal-window-bgc)";
+  });
+
+  taskModalWindowButtonClose.addEventListener("click", () => {
+    taskModalWindow.style.display = "none";
+    askModalWindow.style.transform = "translateY(-44.5%) scale(0)";
+    taskModalWindow.style.backgroundColor = "var(--modal-window-bgc)";
+  });
 }
-
-// const openPopUp = document.querySelector(".task-add__btn");
-// const closePopUp = document.querySelector(".close");
-// const popUp = document.querySelector(".task__modal-window");
-
-// openPopUp.addEventListener("click", function (event) {
-//   event.preventDefault();
-//   popUp.classList.add("active");
-// });
-
-// closePopUp.addEventListener("click", () => {
-//   popUp.classList.remove("active");
-// });
 
 // const addBtn = document.querySelector(".task__modal-window-btn--bg-puple");
 // const taskList = document.querySelector(".task__list");

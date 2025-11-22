@@ -179,15 +179,7 @@ svg {
 
 /* Section tasks start */
 
-.task__item {
-  display: flex;
-  align-items: center;
 
-  padding: 10px;
-  border-radius: var(--toolbar-radius);
-
-  transition: background-color 0.3s ease-in-out;
-}
 .task__item:hover {
   background-color: var(--task-hover-effect);
 }
@@ -208,34 +200,6 @@ svg {
   stroke: var(--white);
 }
 
-.task__left-content {
-  display: flex;
-  align-items: center;
-
-  gap: 17px;
-  margin-right: auto;
-}
-
-.task__title {
-  text-transform: uppercase;
-
-  font-size: 20px;
-  line-height: 100%;
-  font-weight: 400;
-}
-
-.task__right-content {
-  display: flex;
-  align-items: center;
-
-  gap: 10px;
-}
-
-.task__btn {
-  width: 18px;
-  height: 18px;
-}
-
 .pencil__icon path {
   stroke: var(--black);
 }
@@ -248,11 +212,6 @@ svg {
 }
 .trash:hover .trash__icon path {
   stroke: #ff6e6e;
-}
-
-.task__modal-window.active {
-  transform: translateY(0%) scale(1);
-  background-color: var(--modal-window-bgc);
 }
 
 .task__modal-window-input::placeholder {

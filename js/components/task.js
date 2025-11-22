@@ -4,7 +4,6 @@ export function addToDoList(parentTag, body) {
   const taskSection = document.createElement("section");
   const taskMainContainer = document.createElement("div");
   const taskList = document.createElement("ul");
-  const taskItem = document.createElement("li");
   const taskEmptyItem = document.createElement("li");
   const taskEmptyItemIcon = document.createElement("img");
   const taskEmptyItemTitle = document.createElement("h2");

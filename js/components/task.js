@@ -19,6 +19,7 @@ export function addToDoList(parentTag, body) {
   taskList.style.padding = "0 15px";
   taskList.style.margin = "0 auto";
 
+  taskEmptyItem.classList.add("empty-item")
   taskEmptyItem.style.display = "flex";
   taskEmptyItem.style.alignItems = "center";
   taskEmptyItem.style.flexDirection = "column";
@@ -64,5 +65,5 @@ export function addToDoList(parentTag, body) {
   taskMainContainer.insertAdjacentElement("beforeend", taskAddButton);
   taskAddButton.insertAdjacentElement("afterbegin", taskAddButtonIcon);
 
-  addTask(taskSection, taskAddButton)
+  addTask(taskSection, taskAddButton, taskList)
 }

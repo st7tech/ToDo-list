@@ -167,4 +167,13 @@ export function addToolbar(parentTag) {
     "afterbegin",
     toolbarButtonThemeIconPath
   );
+
+  // Function
+  const bgTheme = true
+  toolbarButtonTheme.addEventListener("click", () => {
+    if (!bgTheme) {
+      document.getElementsByTagName("body").style.backgroundColor = "#252525"
+      
+    }
+  })
 }

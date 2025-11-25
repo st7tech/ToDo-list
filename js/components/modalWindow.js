@@ -111,12 +111,21 @@ export function addTask(parentTag, taskAddButton, list) {
     taskModalWindow.style.display = "block";
     taskModalWindow.style.transform = "translateY(0%) scale(1)";
     taskModalWindow.style.backgroundColor = "var(--modal-window-bgc)";
+    taskModalWindowInput.focus();
   });
 
   taskModalWindowButtonClose.addEventListener("click", () => {
     taskModalWindow.style.display = "none";
     taskModalWindow.style.transform = "translateY(-44.5%) scale(0)";
     taskModalWindow.style.backgroundColor = "var(--modal-window-bgc)";
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      taskModalWindow.style.display = "none";
+      taskModalWindow.style.transform = "translateY(-44.5%) scale(0)";
+      taskModalWindow.style.backgroundColor = "var(--modal-window-bgc)";
+    }
   });
 
   const taskItem = document.createElement("li");
@@ -159,8 +168,10 @@ export function addTask(parentTag, taskAddButton, list) {
     "path"
   );
 
+  // func add task in list tasks
+
   taskModalWindowButtonAdd.addEventListener("click", () => {
-    taskTitle.innerText = taskModalWindowInput.value
+    taskTitle.innerText = taskModalWindowInput.value;
 
     list.insertAdjacentElement("afterbegin", taskItem);
     taskItem.insertAdjacentElement("beforeend", leftContent);
@@ -180,6 +191,7 @@ export function addTask(parentTag, taskAddButton, list) {
     buttonTrashIcon.insertAdjacentElement("beforeend", buttonTrashIconPath4);
     buttonTrashIcon.insertAdjacentElement("beforeend", buttonTrashIconPath5);
 
+    taskItem.id = "notCompleted";
     taskItem.classList.add("task__item");
     taskItem.style.display = "flex";
     taskItem.style.alignItems = "center";
@@ -281,6 +293,18 @@ export function addTask(parentTag, taskAddButton, list) {
 
     if (list.children.length == 1) {
       document.querySelector(".empty-item").classList.remove("none");
+    }
+  });
+
+  list.addEventListener("click", (event) => {
+    if (event.target.id === "notCompleted") {
+      taskTitle.style.color = "rgba(37 37 37 0.5)";
+      taskTitle.style.textDecoration = "line-through";
+      taskTitle.id = "completed";
+    } else {
+      taskTitle.style.color = "var(--black)";
+      taskTitle.style.textDecoration = "none";
+      taskTitle.id = "notCompleted";
     }
   });
 }
